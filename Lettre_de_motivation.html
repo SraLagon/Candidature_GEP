@@ -1,15 +1,48 @@
-<style>
-  /* --- ambiance geek --- */
-  body { background:#000; margin:0; }
-  pre  { background:#000; color:#ccc; font-family:"Fira Code","Courier New",monospace; 
-         padding:1rem; line-height:1.4; font-size:0.95rem; }
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  /* couleurs par niveau */
-  .l0 { color:#ff79c6; font-weight:bold; }  /* magenta néon — blocs principaux  */
-  .l1 { color:#50fa7b; }                    /* vert néon   — sous-blocs         */
-  .l2 { color:#8be9fd; }                    /* cyan néon   — sous-sous-blocs    */
-</style>
+  <style>
+    /* === Palette & variables =============================== */
+    :root {
+      --bg:      #000;      /* fond noir */
+      --txt:     #cccccc;   /* texte par défaut */
+      --lvl0:    #ff79c6;   /* magenta néon (niveau 0) */
+      --lvl1:    #50fa7b;   /* vert néon    (niveau 1) */
+      --lvl2:    #8be9fd;   /* cyan néon    (niveau 2) */
+    }
 
+    /* === Reset minimal ===================================== */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--txt);
+           font-family: "Fira Code", "Courier New", monospace; }
+
+    /* === Wrapper pour gérer le responsive =================== */
+    .yaml-wrapper {
+      max-width: 100%;
+      padding: clamp(0.5rem, 2.5vw, 2rem);   /* + ou – d’air selon la largeur */
+    }
+
+    /* === Bloc YAML ========================================== */
+    pre {
+      margin: 0;
+      font-size: clamp(0.75rem, 2.5vw, 1rem); /* police réactive */
+      line-height: 1.4;
+      overflow-x: auto;        /* scroll horizontal si très long */
+      white-space: pre;        /* préserver l’indentation */
+    }
+
+    /* === Couleurs par niveau ================================ */
+    .l0 { color: var(--lvl0); font-weight: 600; }
+    .l1 { color: var(--lvl1); }
+    .l2 { color: var(--lvl2); }
+  </style>
+</head>
+
+<body>
+  <div class="yaml-wrapper">
 <pre>
 <span class="l0">role_du_lecteur:</span>
   <span class="l1">- Jury de recrutement du GEP LV – Académie de Versailles</span>
@@ -74,3 +107,6 @@
   <span class="l2">Je me tiens à votre disposition pour tout complément d’information</span>
   <span class="l2">et suis prête à contribuer activement au rayonnement du GEP LV.</span>
 </pre>
+  </div>
+</body>
+</html>

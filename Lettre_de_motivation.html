@@ -3,44 +3,44 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <style>
     /* === Palette & variables =============================== */
     :root {
-      --bg:      #000;      /* fond noir */
-      --txt:     #cccccc;   /* texte par défaut */
-      --lvl0:    #ff79c6;   /* magenta néon (niveau 0) */
-      --lvl1:    #50fa7b;   /* vert néon    (niveau 1) */
-      --lvl2:    #8be9fd;   /* cyan néon    (niveau 2) */
+      --bg:   #000;
+      --txt:  #ccc;
+      --lvl0: #ff79c6;   /* magenta néon */
+      --lvl1: #50fa7b;   /* vert néon    */
+      --lvl2: #8be9fd;   /* cyan néon    */
     }
 
-    /* === Reset minimal ===================================== */
-    *, *::before, *::after { box-sizing: border-box; }
-    body { margin: 0; background: var(--bg); color: var(--txt);
-           font-family: "Fira Code", "Courier New", monospace; }
+    /* === Reset & base ====================================== */
+    *,*::before,*::after { box-sizing:border-box; }
+    body  { margin:0; background:var(--bg); color:var(--txt);
+            font-family:"Fira Code","Courier New",monospace; }
 
-    /* === Wrapper pour gérer le responsive =================== */
-    .yaml-wrapper {
-      max-width: 100%;
-      padding: clamp(0.5rem, 2.5vw, 2rem);   /* + ou – d’air selon la largeur */
+    /* === Container ========================================= */
+    .yaml-wrapper{
+      max-width:100%;
+      padding:clamp(0.5rem,2.5vw,2rem);
+      overflow-x:hidden;            /* bloque le scroll horizontal */
     }
 
-    /* === Bloc YAML ========================================== */
-    pre {
-      margin: 0;
-      font-size: clamp(0.75rem, 2.5vw, 1rem); /* police réactive */
-      line-height: 1.4;
-      overflow-x: auto;        /* scroll horizontal si très long */
-      white-space: pre;        /* préserver l’indentation */
+    /* === Bloc YAML ========================================= */
+    pre{
+      margin:0;
+      font-size:clamp(0.75rem,2.5vw,1rem);
+      line-height:1.4;
+      white-space:pre-wrap;         /* conserve \n + wrap lignes   */
+      overflow-wrap:anywhere;       /* casse les mots trop longs   */
+      word-break:break-word;        /* sécurité supplémentaire     */
     }
 
-    /* === Couleurs par niveau ================================ */
-    .l0 { color: var(--lvl0); font-weight: 600; }
-    .l1 { color: var(--lvl1); }
-    .l2 { color: var(--lvl2); }
+    /* === Couleurs ========================================== */
+    .l0{ color:var(--lvl0); font-weight:600; }
+    .l1{ color:var(--lvl1); }
+    .l2{ color:var(--lvl2); }
   </style>
 </head>
-
 <body>
   <div class="yaml-wrapper">
 <pre>
